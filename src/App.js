@@ -31,7 +31,8 @@ localStorage.setItem( 'token', token)
   render() {
     
   return (
-    <div className="App">
+    <main>
+      <header/>
       <Router>
              <Route render={({ location, history }) => (
         <React.Fragment>
@@ -47,7 +48,7 @@ localStorage.setItem( 'token', token)
                 <SideNav.Nav defaultSelected="/">
                     <NavItem eventKey="">
                         <NavIcon>
-                            <i className="fa fa-fw fa-home" style={{ fontSize: '1.75em' }} />
+                            <i className="fa fa-fw fa-home" style={{ fontSize: '2em' }} />
                         </NavIcon>
                         <NavText>
                             Login
@@ -55,7 +56,7 @@ localStorage.setItem( 'token', token)
                     </NavItem>
                     <NavItem eventKey="home">
                         <NavIcon>
-                            <i className="fa fa-fw fa-home" style={{ fontSize: '1.75em' }} />
+                            <i className="fa fa-fw fa-home" style={{ fontSize: '2em' }} />
                         </NavIcon>
                         <NavText>
                             Home
@@ -63,7 +64,7 @@ localStorage.setItem( 'token', token)
                     </NavItem>
                     <NavItem eventKey="favorites">
                         <NavIcon>
-                            <i className="fa fa-fw fa-device" style={{ fontSize: '1.75em' }} />
+                            <i className="fa fa-fw fa-device" style={{ fontSize: '2em' }} />
                         </NavIcon>
                         <NavText>
                             Favorites
@@ -71,18 +72,19 @@ localStorage.setItem( 'token', token)
                     </NavItem>
                 </SideNav.Nav>
             </SideNav>
-            <main>
-              <Switch>
+            <div className='content'>
+              <div className='sidebar'></div>
+                <Switch>
                 <Route path="/" exact render={(routerProps) => <Login handleToken={this.handleToken} token={this.state.token} clearToken={this.clearToken} {...routerProps} />} />
                 <Route path='/home' render={(routerProps) => <Home token={this.state.token} {...routerProps}/>} />
                 <Route path="/favorites" render={(routerProps) => <Favorites {...routerProps}/>} />
               </Switch>
-            </main>
+            </div>
         </React.Fragment>
     )}
     />
                     </Router>
-    </div>
+    </main>
   );
 }
 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { signIn, signUp } from './whats_cookn_api.js';
+import './Login.css';
 export default class Login extends Component {
 
     state = {
@@ -37,7 +38,7 @@ export default class Login extends Component {
     
     render() {
         return (
-            <div>
+            <div className='form-login'>
                 <form onSubmit={this.handleSignIn} className='login-forms'>
                     Sign-in
                     <label>
