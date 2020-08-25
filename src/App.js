@@ -75,7 +75,7 @@ localStorage.setItem( 'token', token)
               <Switch>
                 <Route path="/" exact render={(routerProps) => <Login handleToken={this.handleToken} token={this.state.token} clearToken={this.clearToken} {...routerProps} />} />
                 <Route path='/home' render={(routerProps) => <Home token={this.state.token} {...routerProps}/>} />
-                <Route path="/favorites" render={(routerProps) => <Favorites {...routerProps}/>} />
+                <Route path="/favorites" render={(routerProps) => <Favorites token={this.state.token} {...routerProps}/>} />
               </Switch>
             </main>
         </React.Fragment>

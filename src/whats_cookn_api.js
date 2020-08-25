@@ -18,3 +18,15 @@ export function signIn(userData) {
         return { error: e.message }
     }
 }
+
+export function fetchFavorites() {
+    const token = localStorage.getItem( 'token' );
+    try {
+        return request
+        .get(`${URL}/api/favorites`)
+        .set('Authorization', token);
+        
+    } catch(e) { 
+        return { error: e.message }
+    }
+}
