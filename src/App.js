@@ -11,7 +11,7 @@ import {
 } from 'react-router-dom';
 import SideNav,
 { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
-import '@trendmicro/react-sidenav/dist/react-sidenav.css';
+import './react-sidenav.css';
 
 export default class App extends Component {
   state = {
@@ -35,7 +35,7 @@ localStorage.setItem( 'token', token)
       <Router>
              <Route render={({ location, history }) => (
         <React.Fragment>
-            <SideNav
+            <SideNav className='side-bar'
                 onSelect={(selected) => {
                     const to = '/' + selected;
                     if (location.pathname !== to) {
