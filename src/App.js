@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
 import Home from './Home.js';
 import Login from './Login.js';
@@ -7,13 +7,29 @@ import {
   BrowserRouter as Router,
   Route,
   Switch,
-  Link
+  
 } from 'react-router-dom';
 import SideNav,
 { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 
-function App() {
+export default class App extends Component {
+  state = {
+    token: localStorage.getItem('token'),
+  }
+
+  handleToken = (token) => {
+this.setState({ token: token })
+localStorage.setItem( 'token', token)
+  }
+
+  clearToken = () => {
+    this.setState({ token: ''})
+
+    localStorage.setItem('token', '')
+  }
+  render() {
+    
   return (
     <div className="App">
       <Router>
@@ -57,9 +73,9 @@ function App() {
             </SideNav>
             <main>
               <Switch>
-                <Route path="/" exact component={props => <Login />} />
-                <Route path="/home" component={props => <Home />} />
-                <Route path="/favorites" component={props => <Favorites />} />
+                <Route path="/" exact render={(routerProps) => <Login handleToken={this.handleToken} token={this.state.token} clearToken={this.clearToken} {...routerProps} />} />
+                <Route path='/home' render={(routerProps) => <Home token={this.state.token} {...routerProps}/>} />
+                <Route path="/favorites" render={(routerProps) => <Favorites {...routerProps}/>} />
               </Switch>
             </main>
         </React.Fragment>
@@ -70,4 +86,5 @@ function App() {
   );
 }
 
-export default App;
+
+}
