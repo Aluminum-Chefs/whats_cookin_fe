@@ -27,12 +27,13 @@ export default class Favorites extends Component {
             <div>
                 <h2>Favorite Recipes</h2>
                 {
-                    this.state.favorites.map((favorite) => {
-                        return <Link classname='favorite-box' to={`/detail/${favorite.id}`}
-                        key={`${favorite.id}-${favorite.source_id}`}>
-                           <img src={favorite.image_url} alt={favorite.title}/>
+                    
+                        this.state.favorites.map((favorite) => {
+                        return <div classname='favorite-box'>
+                           <Link to={`/detail/${favorite.id}`}
+                        key={`${favorite.id}-${favorite.source_id}`}><img src={favorite.image_url} alt={favorite.title}/></Link>
                            {`${favorite.title}`} <br/> {`${favorite.notes}`}
-                        </Link>
+                        </div>
                     })
                 }
 
