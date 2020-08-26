@@ -15,12 +15,13 @@ export default class DetailPage extends Component {
     }
     render() {
         return (
-            <div>
+            <div className="detail">
+
                 <h1>{this.state.title}</h1>
                 <h3>serves {this.state.servings}</h3>
                 <h3>ready in {this.state.readyInMinutes} minutes</h3>
                  <img src={this.state.image} alt={this.state.title}/>
-                 <p>{this.state.summary}</p>
+                 <div dangerouslySetInnerHTML= {{__html:this.state.summary}} />
         <ul>
             {
             this.state.ingredients && this.state.ingredients.map(ingredient => <li key={ingredient}>{ingredient}</li>)
@@ -32,8 +33,11 @@ export default class DetailPage extends Component {
             }
         </ol>
                 
-
-                
+                <label>SAVE RECIPE
+                <input type="checkbox" />
+                </label>
+                <textarea value={this.props.notes}>THIS IS A PLACE FOR NOTES</textarea>
+                <button>SAVE</button>
             </div>
         )
     }

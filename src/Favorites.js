@@ -28,25 +28,13 @@ export default class Favorites extends Component {
             <div className="fave">
                 <h2>Favorite Recipes</h2>
 
-                <div className="fav">
-                {
-                    
-                        this.state.favorites && this.state.favorites.map((favorite) => {
-                        return <div className='favorite-box'>
-                           <Link to={`/detail/${favorite.source_id}`}
-                        key={`${favorite.id}-${favorite.source_id}`}><br/>{`${favorite.owner_id}`}<img src={favorite.image_url} alt={favorite.title}/><br/></Link>
-                           {`${favorite.title}`} <br/> {`${favorite.notes}`}
-                        </div>
-                    })
-                }
-</div>
 
                 <div className='favorite-content'>
                     {
                     
                         this.state.favorites && this.state.favorites.map((favorite) => {
                         return <div className='favorite-box'>
-                           <Link to={`/detail/${favorite.id}`}
+                           <Link to={`/detail/${favorite.source_id}`}
                         key={`${favorite.id}-${favorite.source_id}`}><img className='recipe-img'src={favorite.image_url} alt={favorite.title}/></Link>
                         <ul>
                             <li>Recipe: {`${favorite.title}`} 
