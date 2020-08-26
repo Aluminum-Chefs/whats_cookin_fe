@@ -4,6 +4,7 @@ import Home from './Home.js';
 import Login from './Login.js';
 import Favorites from './Favorites.js';
 import SearchPage from './SearchPage.js';
+import DetailPage from './DetailPage.js';
 import {
   BrowserRouter as Router,
   Route,
@@ -80,6 +81,14 @@ localStorage.setItem( 'token', token)
                             Search
                         </NavText>
                     </NavItem>
+                    <NavItem eventKey="detail">
+                        <NavIcon>
+                            <i className="fa fa-fw fa-device" style={{ fontSize: '2em' }} />
+                        </NavIcon>
+                        <NavText>
+                            Details
+                        </NavText>
+                    </NavItem>
                 </SideNav.Nav>
             </SideNav>
             <div className='content'>
@@ -89,6 +98,7 @@ localStorage.setItem( 'token', token)
                 <Route path='/home' render={(routerProps) => <Home token={this.state.token} {...routerProps}/>} />
                 <Route path="/favorites" render={(routerProps) => <Favorites token={this.state.token} {...routerProps}/>} />
                 <Route path='/search' render={(routerProps) => <SearchPage token={this.state.token} {...routerProps} />} />
+                <Route path='/detail/:id' render={(routerProps) => <DetailPage token={this.state.token} {...routerProps} />} />
               </Switch>
             </div>
         </React.Fragment>
