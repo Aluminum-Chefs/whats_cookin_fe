@@ -10,10 +10,14 @@ main {
 header{
   height: 200px;
   background: url('./assets/Header.png');
+  filter:saturate(100%)contrast(100%) drop-shadow(12px, 10px, 12px);
   background-position: center;
   background-repeat: no-repeat;
 }
 .content{
   display: grid;
   grid-template-columns: 200px 3fr;
+}
+.navicon{
+
 }

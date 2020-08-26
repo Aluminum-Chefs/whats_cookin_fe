@@ -10,7 +10,7 @@ import {
   
 } from 'react-router-dom';
 import SideNav,
-{ Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
+{ NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
 import './react-sidenav.css';
 
 export default class App extends Component {
@@ -48,7 +48,7 @@ localStorage.setItem( 'token', token)
                 <SideNav.Nav defaultSelected="/">
                     <NavItem eventKey="">
                         <NavIcon>
-                            <i className="fa fa-fw fa-home" style={{ fontSize: '2em' }} />
+                          <i  />
                         </NavIcon>
                         <NavText>
                             Login
@@ -56,7 +56,7 @@ localStorage.setItem( 'token', token)
                     </NavItem>
                     <NavItem eventKey="home">
                         <NavIcon>
-                            <i className="fa fa-fw fa-home" style={{ fontSize: '2em' }} />
+                          <i/>
                         </NavIcon>
                         <NavText>
                             Home
@@ -64,7 +64,7 @@ localStorage.setItem( 'token', token)
                     </NavItem>
                     <NavItem eventKey="favorites">
                         <NavIcon>
-                            <i className="fa fa-fw fa-device" style={{ fontSize: '2em' }} />
+                            <img src="./assets/keyicon.png" alt=""/>
                         </NavIcon>
                         <NavText>
                             Favorites
@@ -83,7 +83,7 @@ localStorage.setItem( 'token', token)
         </React.Fragment>
     )}
     />
-                    </Router>
+    </Router>
     </main>
   );
 }
