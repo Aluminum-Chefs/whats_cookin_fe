@@ -31,12 +31,36 @@ export function fetchFavorites() {
     }
 }
 
+export function postFavorites(newFavorite) {
+    const token = localStorage.getItem( 'token' );
+    try {
+        return request.post(`${URL}/api/favorites`, newFavorite)
+        
+        .set('Authorization', token);
+
+    } catch(e) {
+        return { error: e.message }
+    }
+}
+
 export function searchRecipes(options) {
     const token = localStorage.getItem( "token" );
     try {
-        console.log(options)
+        
         return request
         .get(`${URL}/api/search`, options)
+        .set('Authorization', token);
+    } catch(e) {
+        return { error: e.message }
+    }
+}
+
+export function fetchDetails(source_id) {
+    const token = localStorage.getItem( "token" );
+    try {
+        
+        return request
+        .get(`${URL}/api/favorites/${source_id}`)
         .set('Authorization', token);
     } catch(e) {
         return { error: e.message }

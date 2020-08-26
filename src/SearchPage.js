@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 
 import { cuisines, diets } from './data.js';
-import { searchRecipes } from './whats_cookn_api.js';
+import { searchRecipes, postFavorites } from './whats_cookn_api.js';
+import {
+   Link
+    } from 'react-router-dom';
 
 
 export default class searchPage extends Component {
@@ -35,7 +38,7 @@ export default class searchPage extends Component {
             isLoading: false,
             
         })
-        console.log(recipeData);
+        console.log(this.state.results);
 
         
     }
@@ -61,6 +64,12 @@ export default class searchPage extends Component {
           await this.setState({[name]:val});
       }
 
+      handleFavoriteAdd = async (e) => {
+        postFavorites({
+            source_id: this.stateresults
+        })
+      }
+
     
     render() {
         return (
@@ -79,6 +88,18 @@ export default class searchPage extends Component {
                 <input name='searchByIngredients' value={this.state.searchByIngredients} onChange={this.handleItemChange}/>
                 <button>Search</button>
                 </form>
+                
+                {
+                    this.state.results && this.state.results.map((result) => { return <div className='recipe-card'>
+                       <Link to={`/detail/${result.id}`}> <img src={result.image} alt={result.title} /> </Link>
+                        <h3>{result.title}</h3>
+                         
+                        </div>
+                }
+        )
+        }
+                    
+                
 
                 
             </div>
