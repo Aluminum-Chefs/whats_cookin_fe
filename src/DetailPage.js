@@ -23,12 +23,12 @@ export default class DetailPage extends Component {
                  <p>{this.state.summary}</p>
         <ul>
             {
-            this.state.ingredients.map(ingredient => <li key={ingredient}>{ingredient}</li>)
+            this.state.ingredients && this.state.ingredients.map(ingredient => <li key={ingredient}>{ingredient}</li>)
         }
         </ul>
         <ol>
             {
-                this.state.instructions.map(step => <li key={step}>{step}</li>)
+              this.state.instructions && this.state.instructions.map(step => <li key={step}>{step}</li>)
             }
         </ol>
                 
