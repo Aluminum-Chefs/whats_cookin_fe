@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 export default class Favorites extends Component {
     state = {
-        favorites: []
+        favorites: null
     }
 
     componentDidMount = async () => {
@@ -28,7 +28,7 @@ export default class Favorites extends Component {
                 <h2>Favorite Recipes</h2>
                 {
                     
-                        this.state.favorites.map((favorite) => {
+                        this.state.favorites && this.state.favorites.map((favorite) => {
                         return <div classname='favorite-box'>
                            <Link to={`/detail/${favorite.id}`}
                         key={`${favorite.id}-${favorite.source_id}`}><img src={favorite.image_url} alt={favorite.title}/></Link>

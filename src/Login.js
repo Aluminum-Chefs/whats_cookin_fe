@@ -16,7 +16,8 @@ export default class Login extends Component {
 
         const user = await signUp({
             email: this.state.signUpEmail,
-            password: this.state.signUpPassword
+            password: this.state.signUpPassword,
+            schedule_id: this.state.schedule_id
         });
 
         this.props.handleToken(user.body.token);
