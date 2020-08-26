@@ -3,6 +3,7 @@ import './App.css';
 import Home from './Home.js';
 import Login from './Login.js';
 import Favorites from './Favorites.js';
+import SearchPage from './SearchPage.js';
 import {
   BrowserRouter as Router,
   Route,
@@ -12,6 +13,7 @@ import {
 import SideNav,
 { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
 import './react-sidenav.css';
+
 
 export default class App extends Component {
   state = {
@@ -70,6 +72,14 @@ localStorage.setItem( 'token', token)
                             Favorites
                         </NavText>
                     </NavItem>
+                    <NavItem eventKey="search">
+                        <NavIcon>
+                            <i className="fa fa-fw fa-device" style={{ fontSize: '2em' }} />
+                        </NavIcon>
+                        <NavText>
+                            Search
+                        </NavText>
+                    </NavItem>
                 </SideNav.Nav>
             </SideNav>
             <div className='content'>
@@ -78,6 +88,7 @@ localStorage.setItem( 'token', token)
                 <Route path="/" exact render={(routerProps) => <Login handleToken={this.handleToken} token={this.state.token} clearToken={this.clearToken} {...routerProps} />} />
                 <Route path='/home' render={(routerProps) => <Home token={this.state.token} {...routerProps}/>} />
                 <Route path="/favorites" render={(routerProps) => <Favorites token={this.state.token} {...routerProps}/>} />
+                <Route path='/search' render={(routerProps) => <SearchPage token={this.state.token} {...routerProps} />} />
               </Switch>
             </div>
         </React.Fragment>
