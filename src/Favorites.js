@@ -35,7 +35,7 @@ export default class Favorites extends Component {
                         this.state.favorites && this.state.favorites.map((favorite) => {
                         return <div className='favorite-box'>
                            <Link to={`/detail/${favorite.source_id}`}
-                        key={`${favorite.id}-${favorite.source_id}`}><img className='recipe-img'src={favorite.image_url} alt={favorite.title}/></Link>
+                        key={`${favorite.id}-${favorite.source_id}`} favorite_id = {favorite.id}><img className='recipe-img' src={favorite.image_url} alt={favorite.title}/></Link>
                         <ul>
                             <li>Recipe: {`${favorite.title}`} 
                             </li>

@@ -5,14 +5,40 @@ export default class DetailPage extends Component {
 
     state= {
 
-
+        isFavorited: false
     }
 
     componentDidMount = async () => {
         const recipe = await fetchDetails(this.props.match.params.id);
         this.setState(recipe.body)
         console.log(this.state)
+        console.log(this.props);
     }
+
+    checkboxHandler = (e) => {
+
+        const checked = e.target.checked;
+        this.setState({ isFavorited: checked })
+
+      
+
+
+
+       }
+       addNote = (e) => {
+
+            const note = e.target.value;
+
+            this.setState({ notes: note });
+            console.log(this.state);
+
+       }
+
+
+
+
+
+    
     render() {
         return (
             <div className="detail">
@@ -32,12 +58,14 @@ export default class DetailPage extends Component {
               this.state.instructions && this.state.instructions.map(step => <li key={step}>{step}</li>)
             }
         </ol>
-                
-                <label>SAVE RECIPE
-                <input type="checkbox" />
-                </label>
-                <textarea value={this.props.notes}>THIS IS A PLACE FOR NOTES</textarea>
-                <button>SAVE</button>
+                <form onSubmit ={this.saveDetail}>
+                    <label>SAVE RECIPE
+                    <input onChange={this.checkboxHandler} type="checkbox" />
+                    </label>
+                    <textarea onChange={this.addNote} value={this.props.notes}>THIS IS A PLACE FOR NOTES</textarea>
+                    <button>SAVE</button>
+                </form>
+
             </div>
         )
     }
