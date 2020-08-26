@@ -6,6 +6,7 @@ import {
    Link
     } from 'react-router-dom';
 
+import './SearchPage.css'
 
 export default class searchPage extends Component {
     state = {
@@ -75,29 +76,31 @@ export default class searchPage extends Component {
         return (
             <div>
                 <form onSubmit={this.handleFormSubmit}>
-                <select name='searchByCuisine' value={this.state.searchByCuisine}onChange={this.handleItemChange}>
+                <select className='fav-select'name='searchByCuisine' value={this.state.searchByCuisine}onChange={this.handleItemChange}>
                         {
                         cuisines.map(cuisine => <option value={cuisine}>{cuisine}</option>)
                         }
                 </select>
-                <select  name='searchByDiet' value={this.state.searchByDiet}onChange={this.handleItemChange}>
+                <select className='fav-select' name='searchByDiet' value={this.state.searchByDiet}onChange={this.handleItemChange}>
                         {
                         diets.map(diet => <option value={diet}>{diet}</option>)
                         }
                 </select>
-                <input name='searchByIngredients' value={this.state.searchByIngredients} onChange={this.handleItemChange}/>
+                <input placeHolder='Ingredient'name='searchByIngredients' value={this.state.searchByIngredients} onChange={this.handleItemChange}/>
                 <button>Search</button>
                 </form>
+                        <div className='recipe-results'>
                 
                 {
                     this.state.results && this.state.results.map((result) => { return <div className='recipe-card'>
-                       <Link to={`/detail/${result.id}`}> <img src={result.image} alt={result.title} /> </Link>
+                       <Link to={`/detail/${result.id}`}> <img className='result-img'src={result.image} alt={result.title} /> </Link>
                         <h3>{result.title}</h3>
                          
                         </div>
                 }
         )
         }
+        </div>
                     
                 
 
