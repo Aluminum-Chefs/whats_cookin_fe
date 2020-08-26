@@ -38,38 +38,43 @@ export default class Login extends Component {
     
     render() {
         return (
-            <div className='form-login'>
+            <div className='login-content'>
+            <div className='form-signin'>
                 <form onSubmit={this.handleSignIn} className='login-forms'>
                     Sign-in
                     <label>
-                        Email
-                        <input onChange={e => this.setState({ signInEmail: e.target.value})} value={this.state.signInEmail}/>
+                        
+                        <input placeholder='Email'onChange={e => this.setState({ signInEmail: e.target.value})} value={this.state.signInEmail}/>
                     </label>
                     <label>
-                        Password
-                        <input type='password' onChange={e => this.setState({ signInPassword: e.target.value})} value={this.state.signInPassword}/>
+                        
+                        <input placeholder='Password'type='password' onChange={e => this.setState({ signInPassword: e.target.value})} value={this.state.signInPassword}/>
                     </label>
                     <button>Submit</button>
                     
                 </form>
+                </div>
+
+                <div className='form-signup'>
                 <form onSubmit={this.handleSignUp} className='login-forms'>
                     Sign-up
                     <label>
-                        Email
-                        <input onChange={e => this.setState({ signUpEmail: e.target.value})} value={this.state.signUpEmail}/>
+                        
+                        <input placeholder='Email'onChange={e => this.setState({ signUpEmail: e.target.value})} value={this.state.signUpEmail}/>
                     </label>
                     <label>
-                        Password
-                        <input type='password' onChange={e => this.setState({ signUpPassword: e.target.value})} value={this.state.signUpPassword}/>
+                        
+                        <input placeholder='Password' type='password' onChange={e => this.setState({ signUpPassword: e.target.value})} value={this.state.signUpPassword}/>
                     </label>
                     <label>
-                        Schedule ID
-                        <input onChange={e => this.setState({ schedule_id: e.target.value})} value={this.state.schedule_id}/>
+                        
+                        <input placeholder='Schedule ID' onChange={e => this.setState({ schedule_id: e.target.value})} value={this.state.schedule_id}/>
                     </label>
                     <button>Submit</button>
                     
                 </form>
                 
+                </div>
             </div>
         )
     }

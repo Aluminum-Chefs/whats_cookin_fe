@@ -12,6 +12,7 @@ main {
 header{
   height: 200px;
   background: url('./assets/Header.png');
+  filter:saturate(100%)contrast(100%) drop-shadow(12px, 10px, 12px);
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -19,39 +20,6 @@ header{
   display: grid;
   grid-template-columns: 200px 3fr;
 }
+.navicon{
 
-img {
-  width: 200px;
-  padding: 20px;
-  
-}
-.fav {
- 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-.favorite-box{
-  border: 1px solid;
-  padding: 10px;
-  box-shadow: 5px 10px 8px #888888;
-  flex-wrap: wrap;
-  padding: 20px;
-  margin: 20px;
-  background-color: aliceblue;
-  border-radius: 16px;
-  font-family: cursive;
-}
-.fave {
-  
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-h2 {
-  color: white;
-  font-family: "Sacramento", cursive;
-  font-size: 50px;
 }

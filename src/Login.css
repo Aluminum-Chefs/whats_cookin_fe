@@ -1,4 +1,37 @@
-.form-login{
+.login-content{
     display: block;
     justify-content: center;
+    font-size: 2.5rem;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+    color: rgb(255, 255, 255);
+}
+
+label{
+    display: block;
+}
+
+input{
+    box-shadow: 0 0 15px 4px rgba(100, 76, 76, 0.5);
+    border:0;
+    border-radius: 8px;
+    height: auto;
+    width: 250px;
+    font-size: 1.5rem;
+}
+button{
+    box-shadow: 0 0 15px 4px rgba(100, 76, 76, 0.5);
+    border-radius: 4px;
+    background: transparent;
+    font-size: 1.25rem;
+}
+
+.form-signin{
+    position: absolute;
+    left:30%;
+    top:30%;
+}
+.form-signup{
+    position: absolute;
+    left:30%;
+    top:60%;
 }
