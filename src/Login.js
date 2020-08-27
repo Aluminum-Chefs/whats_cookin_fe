@@ -42,7 +42,7 @@ export default class Login extends Component {
             <div className='login-content'>
             <div className='form-signin'>
                 <form onSubmit={this.handleSignIn} className='login-forms'>
-                    Sign-in
+                    <h3 className='form-signs'>Sign-in</h3>
                     <label>
                         
                         <input className='login-input' placeholder='Email'onChange={e => this.setState({ signInEmail: e.target.value})} value={this.state.signInEmail}/>
@@ -58,7 +58,7 @@ export default class Login extends Component {
 
                 <div className='form-signup'>
                 <form onSubmit={this.handleSignUp} className='login-forms'>
-                    Sign-up
+                    <h3 className='form-signs'>Sign-up</h3>
                     <label>
                         
                         <input className='login-input' placeholder='Email'onChange={e => this.setState({ signUpEmail: e.target.value})} value={this.state.signUpEmail}/>
