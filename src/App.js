@@ -51,7 +51,7 @@ localStorage.setItem( 'token', token)
                 <SideNav.Nav defaultSelected="/">
                     <NavItem eventKey="">
                         <NavIcon>
-                          <i/>
+                          L
                         </NavIcon>
                         <NavText>
                             Login
