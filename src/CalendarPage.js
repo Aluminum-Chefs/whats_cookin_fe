@@ -5,7 +5,7 @@ import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from '@fullcalendar/interaction'
 import { INITIAL_EVENTS, createEventId } from './event-utils'
 import { fetchFavorites} from './whats_cookn_api.js'
-
+import './CalendarPage.css';
 export default class CalendarPage extends React.Component {
 
   state = {
@@ -96,16 +96,16 @@ export default class CalendarPage extends React.Component {
     {
 
         this.state.favorites && this.state.favorites.map((favorite) => {
-        return <div className='favorite-box'>
+        return <div className='calendar-box'
         
-        key={`${favorite.id}-${favorite.source_id}`}
-        <img className='recipe-img' src={favorite.image_url} alt={favorite.title} onClick={this.handleFavoriteSelection}/>
+        key={`${favorite.id}-${favorite.source_id}`}>
         <ul>
-            <li className='recipe-name' >{`${favorite.title}`} 
+            <li className='calendar-name' >{`${favorite.title}`} 
             </li>
-            <li>Notes: {`${favorite.notes}`}</li>
+            <li className='calendar-name'>Notes: {`${favorite.notes}`}</li>
           
         </ul>
+        <img className='calendar-img' src={favorite.image_url} alt={favorite.title} onClick={this.handleFavoriteSelection}/>
         </div>
         })
     }

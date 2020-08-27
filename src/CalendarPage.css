@@ -1,0 +1,33 @@
+.favorite-selection{
+    display: flex;
+    width:500px;
+    flex-wrap: wrap;
+    position: fixed;
+    z-index: 1010;
+    left:15%;
+    top:10%;
+    text-align: center;
+
+}
+.calendar-box{
+    background: rgba(255, 255, 255, 0.7);
+    width: 100px;
+    border-radius: 10px;
+    height: auto;
+    margin:5px;
+}
+.calendar-img{
+    max-width: 50px;
+    max-height: 50px;
+    margin:0px;
+}
+
+.calendar-name{
+    font-size: 9px;
+    margin-top:-5px;
+    margin-bottom:-5px;
+}
+
+.demo-app{
+    text-align: center;
+}
