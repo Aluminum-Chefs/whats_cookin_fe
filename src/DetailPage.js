@@ -10,9 +10,13 @@ export default class DetailPage extends Component {
 
     componentDidMount = async () => {
         const recipe = await fetchDetails(this.props.match.params.id);
-        this.setState(recipe.body)
-        console.log(this.state)
-        console.log(this.props);
+        this.setState(recipe.body);
+        this.setState({
+            favorite_id: this.props.location.state.favorite_id,
+            isFavorited: this.props.location.state.isFavorited,
+            notes:this.props.location.state.notes,
+        })
+        console.log(this.state);
     }
 
     checkboxHandler = (e) => {
@@ -60,9 +64,9 @@ export default class DetailPage extends Component {
         </ol>
                 <form onSubmit ={this.saveDetail}>
                     <label>SAVE RECIPE
-                    <input onChange={this.checkboxHandler} type="checkbox" />
+                    <input onChange={this.checkboxHandler} type="checkbox" checked={this.state.isFavorited} />
                     </label>
-                    <textarea onChange={this.addNote} value={this.props.notes}>THIS IS A PLACE FOR NOTES</textarea>
+                    <textarea onChange={this.addNote} value={this.state.notes}>THIS IS A PLACE FOR NOTES</textarea>
                     <button>SAVE</button>
                 </form>
 
