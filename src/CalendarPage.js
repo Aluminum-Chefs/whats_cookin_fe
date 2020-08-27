@@ -3,14 +3,33 @@ import FullCalendar, { formatDate } from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from '@fullcalendar/interaction'
-import { INITIAL_EVENTS, createEventId } from './event-utils'
-import { fetchFavorites} from './whats_cookn_api.js'
 import './CalendarPage.css';
+import { createEventId } from './event-utils'
+import { fetchFavorites, fetchDays, postDays } from './whats_cookn_api.js'
+
+
 export default class CalendarPage extends React.Component {
 
   state = {
     weekendsVisible: true,
-    currentEvents: []
+    currentEvents: null
+  }
+  componentDidMount = async () => {
+
+    const data = await fetchDays();
+    const events = data.body.map((day, index) => {
+        return {
+          id: index.toString(),
+          title: day.title,
+          start: day.date
+        }
+
+    })
+    
+    
+    await this.setState({ currentEvents: events });
+    
+
   }
 
   handleDateSelect = async (selectInfo) => {
@@ -18,23 +37,25 @@ export default class CalendarPage extends React.Component {
     const data = await fetchFavorites()
         
         this.setState({
-            favorites: data.body
+            favorites: data.body, 
+            day: selectInfo.startStr,
+
         })
-    let title = 'Test'
+    // let title = 'Test'
     
-    let calendarApi = selectInfo.view.calendar
+    // let calendarApi = selectInfo.view.calendar
 
-    calendarApi.unselect() // clear date selection
+    // calendarApi.unselect() // clear date selection
 
-    if (title) {
-      calendarApi.addEvent({
-        id: createEventId(),
-        title,
-        start: selectInfo.startStr,
-        end: selectInfo.endStr,
-        allDay: selectInfo.allDay
-      })
-    }
+    // if (title) {
+    //   calendarApi.addEvent({
+    //     id: createEventId(),
+    //     title,
+    //     start: selectInfo.startStr,
+    //     end: selectInfo.endStr,
+    //     allDay: selectInfo.allDay
+    //   })
+    // }
   }
 
   handleEventClick = (clickInfo) => {
@@ -44,9 +65,10 @@ export default class CalendarPage extends React.Component {
   }
 
   handleEvents = (events) => {
-    this.setState({
-      currentEvents: events
-    })
+    // this.setState({
+    //   currentEvents: events
+    // })
+    
   }
    renderEventContent = (eventInfo) => {
     return (
@@ -56,15 +78,30 @@ export default class CalendarPage extends React.Component {
       </>
     )
   }
-  handleFavoriteSelection = () => {
+  handleFavoriteSelection = async (e) => {
+    const favoriteId = e.target.name;
+    this.setState({ favorite_id: favoriteId });
+    
+    const newDay = {
+
+        day: this.state.day,
+        favorite_id: favoriteId,
+
+
+    }
+    const result =  await postDays(newDay);
+    console.log(result);
     this.setState({favorites:null})
+  
   }
   render() {
+    console.log(this.state)
     return (
       <>
       <div className='demo-app'>
         
         <div className='demo-app-main'>
+     
           <FullCalendar
             plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
             headerToolbar={{
@@ -78,7 +115,7 @@ export default class CalendarPage extends React.Component {
             selectMirror={true}
             dayMaxEvents={true}
             weekends={this.state.weekendsVisible}
-            initialEvents={INITIAL_EVENTS} // alternatively, use the `events` setting to fetch from a feed
+            events={this.state.currentEvents} // alternatively, use the `events` setting to fetch from a feed
             select={this.handleDateSelect}
             eventContent={this.renderEventContent} // custom render function
             eventClick={this.handleEventClick}
@@ -89,6 +126,7 @@ export default class CalendarPage extends React.Component {
             eventRemove={function(){}}
             */
           />
+
         </div>
       </div>
     
@@ -96,9 +134,10 @@ export default class CalendarPage extends React.Component {
     {
 
         this.state.favorites && this.state.favorites.map((favorite) => {
-        return <div className='calendar-box'
-        
-        key={`${favorite.id}-${favorite.source_id}`}>
+        return <div className='calendar-box'key={`${favorite.id}-${favorite.source_id}`}>
+
+        key={`${favorite.id}-${favorite.source_id}`}
+        <img className='recipe-img' src={favorite.image_url} alt={favorite.title} onClick={this.handleFavoriteSelection} name={favorite.id} />
         <ul>
             <li className='calendar-name' >{`${favorite.title}`} 
             </li>
