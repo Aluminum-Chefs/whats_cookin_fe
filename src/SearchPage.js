@@ -86,7 +86,7 @@ export default class searchPage extends Component {
                         diets.map(diet => <option value={diet}>{diet}</option>)
                         }
                 </select>
-                <input placeHolder='Ingredient'name='searchByIngredients' value={this.state.searchByIngredients} onChange={this.handleItemChange}/>
+                <input className= 'search-input'placeHolder='Ingredient'name='searchByIngredients' value={this.state.searchByIngredients} onChange={this.handleItemChange}/>
                 <button>Search</button>
                 </form>
                 <div className='recipe-results'>

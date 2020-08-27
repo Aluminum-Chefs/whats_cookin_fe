@@ -15,7 +15,6 @@ header{
   z-index: 1005;
   height: 200px;
   background: url('./assets/Header.png');
-  filter:saturate(100%)contrast(100%) drop-shadow(12px, 10px, 12px);
   background-position: center;
   background-repeat: no-repeat;
   background-size: 75%;
@@ -23,4 +22,23 @@ header{
 .content{
   display: grid;
   grid-template-columns: 65px 3fr;
+}
+
+footer{
+  width:100%;
+  background:rgba(255, 255, 255, 0.479);
+  position: fixed;
+  bottom:0;
+  display:flex;
+  justify-content: flex-end;
+}
+.logout-button{
+  background:rgba(255, 255, 255, 0.486);
+  width:auto;
+  font-size:1rem;
+  position: fixed;
+  z-index: 1009;
+  right:0;
+  bottom:0;
+  
 }

@@ -105,6 +105,7 @@ localStorage.setItem( 'token', token)
     )}
     />
     </Router>
+    <footer><button className='logout-button'>Log Out</button></footer>
     </main>
   );
 }
