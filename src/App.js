@@ -11,6 +11,7 @@ import {
   BrowserRouter as Router,
   Route,
   Switch,
+  Link,
   
 } from 'react-router-dom';
 import SideNav,
@@ -32,6 +33,8 @@ localStorage.setItem( 'token', token)
     this.setState({ token: ''})
 
     localStorage.setItem('token', '')
+    // this.props.history.push('/home');
+   
   }
   render() {
     
@@ -59,12 +62,12 @@ localStorage.setItem( 'token', token)
                             Login
                         </NavText>
                     </NavItem>
-                    <NavItem eventKey="home">
+                    <NavItem eventKey="calendar">
                         <NavIcon>
-                        <span role='img' aria-label='favorites'>🔪</span>
+                        <span role='img' aria-label='calendar'>⊞</span>
                         </NavIcon>
                         <NavText>
-                            Home
+                            Calendar
                         </NavText>
                     </NavItem>
                     <NavItem eventKey="favorites">
@@ -100,8 +103,8 @@ localStorage.setItem( 'token', token)
         </React.Fragment>
     )}
     />
+    <footer><Link to='/'><button onClick={this.clearToken} className='logout-button'>Log Out</button></Link></footer>
     </Router>
-    <footer><button className='logout-button'>Log Out</button></footer>
     </main>
   );
 }
