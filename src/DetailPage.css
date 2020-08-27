@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Sriracha&display=swap');
+
 .detail-content{
     width: fit-content;
     padding-inline-start: 20px;
@@ -21,6 +23,61 @@
 }
 
 .ingredients-list{
-    padding-inline-start: 40px;
+    padding-inline-start: 60px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.486);
+    box-shadow: 0 0 15px 4px rgba(100, 76, 76, 0.5);
 }
 
+h2, h3 {
+    color: white;
+    text-shadow: black 2px 2px 4px;
+    font-family: 'Sriracha', cursive; 
+}
+
+a {
+    color: black;
+}
+
+.form-detail {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.label-detail {
+    
+    cursor: pointer;
+    
+
+}
+
+.label-detail input:checked ~ label:before { content: "\2605"; }
+.label-detail input { 
+    display: none;
+    align-self: center;
+    width: auto;
+}
+.label-detail label:before {
+    display: flex;
+    content: "\00a0"; /* Blank space */
+    width: 40px;
+    margin-right: 5px;
+    text-align: center;
+    background: none;
+  }
+  .label-detail {
+    font-size: 16px;
+    line-height: 20px;
+    
+    
+  }
+  .label-detail label { cursor: pointer; }
+  .label-detail label:hover::before { background: none; }
+  .checkmark {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-right: 40px;
+    
+  }

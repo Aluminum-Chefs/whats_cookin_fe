@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Sacramento&display=swap");
-
+@import url('https://fonts.googleapis.com/css2?family=Sriracha&display=swap');
 main {
   background: url('./assets/background.jpg');
   background-size:cover;
@@ -42,3 +42,9 @@ footer{
   bottom:0;
   
 }
+
+i {
+  content: "\00a0";
+}
+
+
