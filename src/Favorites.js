@@ -46,7 +46,7 @@ export default class Favorites extends Component {
                                 }}
                         key={`${favorite.id}-${favorite.source_id}`} favorite_id = {favorite.id}><img className='recipe-img' src={favorite.image_url} alt={favorite.title}/></Link>
                         <ul>
-                            <li>Recipe: {`${favorite.title}`} 
+                            <li className='recipe-name' >{`${favorite.title}`} 
                             </li>
                             <li>Notes: {`${favorite.notes}`}</li>
                            

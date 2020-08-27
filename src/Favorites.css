@@ -4,6 +4,7 @@
 }
 .favorite-box{
     display: flex;
+    max-width: 400px;
     margin-bottom: 20px;
     margin-right: 20px;
     border-radius: 20px;
@@ -18,6 +19,11 @@
     border-radius: 15px;
     box-shadow: 0 0 15px 4px rgba(100, 76, 76, 0.5);
     margin-right:5px;
+}
+
+.recipe-name {
+    font-size: larger;
+    font-family: 'Sriracha', cursive;
 }
 
 ul{

@@ -21,7 +21,7 @@ export default class Login extends Component {
         });
 
         this.props.handleToken(user.body.token);
-        this.props.history.push('/home');
+        this.props.history.push('/search');
     }
 
     handleSignIn = async (e) => {
@@ -33,7 +33,7 @@ export default class Login extends Component {
         });
 
         this.props.handleToken(user.body.token);
-        this.props.history.push('/home');
+        this.props.history.push('/search');
     }
 
     
