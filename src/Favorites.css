@@ -6,7 +6,8 @@
     display: flex;
     max-width: 400px;
     margin-bottom: 20px;
-    margin-right: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
     border-radius: 20px;
     background: rgba(255, 255, 255, 0.486);
     box-shadow: 0 0 15px 4px rgba(100, 76, 76, 0.5);
