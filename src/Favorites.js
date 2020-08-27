@@ -48,7 +48,7 @@ export default class Favorites extends Component {
                         <ul>
                             <li className='recipe-name' >{`${favorite.title}`} 
                             </li>
-                            <li>Notes: {`${favorite.notes}`}</li>
+                            {/* <li>Notes: {`${favorite.notes}`}</li> */}
                            
                         </ul>
                         </div>
