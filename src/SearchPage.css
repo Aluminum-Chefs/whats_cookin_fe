@@ -9,13 +9,16 @@
 
 .recipe-card{
     background: rgba(255, 255, 255, 0.486);
-    display:flex;
+    display:block;
+    text-align: center;
     margin: 5px;
-    width: 300px;;
+    width: 300px;
     border-radius: 10px;
     box-shadow: 0 0 15px 4px rgba(100, 76, 76, 0.5);
 }
 .search-form{
+    align-items: center;
+    justify-items: center;
     display: flex;
     flex-wrap: wrap;
     padding-inline-start: 10%;
@@ -28,13 +31,13 @@
 }
 
 .result-img{
-    max-width: 100px;
-    max-height: 100px;
+    max-width: 150px;
+    max-height: 150px;
     border-radius: 15px;
     box-shadow: 0 0 15px 4px rgba(100, 76, 76, 0.5);
-    margin-right:20px;
 }
 .search-input{
+    align-self: start;
     box-shadow: 0 0 15px 4px rgba(100, 76, 76, 0.5);
     border:0;
     border-radius: 8px;
@@ -42,4 +45,8 @@
     width: 250px;
     font-size: 1.5rem;
     margin: 5px;
+}
+
+.title{
+    padding-top: 0px;
 }

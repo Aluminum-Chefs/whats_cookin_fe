@@ -94,7 +94,7 @@ export default class searchPage extends Component {
                     {
                     this.state.results && this.state.results.map((result) => { return <div className='recipe-card'>
                        <Link to={`/detail/${result.id}`}> <img className='result-img'src={result.image} alt={result.title} /> </Link>
-                        <h3>{result.title}</h3>
+                        <h3 className='title'>{result.title}</h3>
                          </div>
                          })
                     }
