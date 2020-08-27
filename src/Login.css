@@ -31,10 +31,17 @@ button{
 .form-signin{
     position: absolute;
     left:30%;
-    top:30%;
+    top:15%;
 }
 .form-signup{
     position: absolute;
     left:30%;
-    top:60%;
+    top:50%;
+}
+
+.form-signs{
+    margin-bottom:0px;
+}
+.nav{
+    text-shadow: black 1px 1px 5px;
 }
