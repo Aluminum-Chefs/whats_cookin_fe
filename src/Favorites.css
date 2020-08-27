@@ -30,3 +30,15 @@ li{
     font-weight: 600;
 
 }
+
+.search-button{
+    box-shadow: 0 0 15px 4px rgba(100, 76, 76, 0.5);
+    cursor: pointer;
+    border-radius: 4px;
+    background: transparent;
+    font-size: 1.25rem;
+    margin-left: 15px;
+    background:rgba(255, 255, 255, 0.486);
+    width:auto;
+    font-size:1.2rem;
+}

@@ -5,6 +5,8 @@ import Login from './Login.js';
 import Favorites from './Favorites.js';
 import SearchPage from './SearchPage.js';
 import DetailPage from './DetailPage.js';
+import CalendarPage from './CalendarPage.js'
+
 import {
   BrowserRouter as Router,
   Route,
@@ -91,7 +93,9 @@ localStorage.setItem( 'token', token)
                 <Route path="/favorites" render={(routerProps) => <Favorites token={this.state.token} {...routerProps}/>} />
                 <Route path='/search' render={(routerProps) => <SearchPage token={this.state.token} {...routerProps} />} />
                 <Route path='/detail/:id' exact render={(routerProps) => <DetailPage token={this.state.token} {...routerProps} />} />
-              </Switch>
+                <Route path='/calendar' render={(routerProps) => <CalendarPage token={this.state.token} {...routerProps} />} />
+                                           
+               </Switch>
             </div>
         </React.Fragment>
     )}
