@@ -70,12 +70,23 @@ export function searchRecipes(options) {
 export function fetchDetails(source_id) {
     const token = localStorage.getItem( "token" );
     try {
-        
         return request
-        .get(`${URL}/api/favorites/${source_id}`)
-        .set('Authorization', token);
+            .get(`${URL}/api/favorites/${source_id}`)
+            .set('Authorization', token);
+
     } catch(e) {
         return { error: e.message }
     }
 }
 
+export function fetchDays() {
+    const token =localStorage.getItem( "token" )
+    try {
+        return request
+            .get(`${URL}/api/days`)
+            .set('Authorization', token);
+
+    } catch (e) {
+        return { error: e.message }
+    }
+}
