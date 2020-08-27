@@ -43,6 +43,18 @@ export function postFavorites(newFavorite) {
     }
 }
 
+export function putFavorites(modifiedFavorite) {
+    const token = localStorage.getItem( 'token' );
+    try {
+        return request
+            .put(`${URL}/api/favorites/${modifiedFavorite.id}`, modifiedFavorite)
+            .set('Authorization', token);
+
+    } catch(e) {
+        return { error: e.message }
+    }
+}
+
 export function searchRecipes(options) {
     const token = localStorage.getItem( "token" );
     try {
@@ -66,3 +78,4 @@ export function fetchDetails(source_id) {
         return { error: e.message }
     }
 }
+
