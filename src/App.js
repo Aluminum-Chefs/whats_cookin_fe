@@ -51,7 +51,7 @@ localStorage.setItem( 'token', token)
                 <SideNav.Nav defaultSelected="/">
                     <NavItem eventKey="">
                         <NavIcon>
-                          <i/>
+                          <span role='img' aria-label='home'>💻</span>
                         </NavIcon>
                         <NavText>
                             Login
@@ -59,7 +59,7 @@ localStorage.setItem( 'token', token)
                     </NavItem>
                     <NavItem eventKey="home">
                         <NavIcon>
-                          H
+                        <span role='img' aria-label='favorites'>🔪</span>
                         </NavIcon>
                         <NavText>
                             Home
@@ -67,7 +67,7 @@ localStorage.setItem( 'token', token)
                     </NavItem>
                     <NavItem eventKey="favorites">
                         <NavIcon>
-                            *
+                          ✪
                         </NavIcon>
                         <NavText>
                             Favorites
@@ -75,18 +75,10 @@ localStorage.setItem( 'token', token)
                     </NavItem>
                     <NavItem eventKey="search">
                         <NavIcon>
-                            ?
+                          ⌨
                         </NavIcon>
                         <NavText>
                             Search
-                        </NavText>
-                    </NavItem>
-                    <NavItem eventKey="detail">
-                        <NavIcon>
-                            D
-                        </NavIcon>
-                        <NavText>
-                            Details
                         </NavText>
                     </NavItem>
                 </SideNav.Nav>
