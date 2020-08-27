@@ -51,7 +51,7 @@ localStorage.setItem( 'token', token)
                 <SideNav.Nav defaultSelected="/">
                     <NavItem eventKey="">
                         <NavIcon>
-                          <i  />
+                          L
                         </NavIcon>
                         <NavText>
                             Login
@@ -59,7 +59,7 @@ localStorage.setItem( 'token', token)
                     </NavItem>
                     <NavItem eventKey="home">
                         <NavIcon>
-                          <i/>
+                          H
                         </NavIcon>
                         <NavText>
                             Home
@@ -67,7 +67,7 @@ localStorage.setItem( 'token', token)
                     </NavItem>
                     <NavItem eventKey="favorites">
                         <NavIcon>
-                            <img src="./assets/keyicon.png" alt=""/>
+                            *
                         </NavIcon>
                         <NavText>
                             Favorites
@@ -75,7 +75,7 @@ localStorage.setItem( 'token', token)
                     </NavItem>
                     <NavItem eventKey="search">
                         <NavIcon>
-                            <i className="fa fa-fw fa-device" style={{ fontSize: '2em' }} />
+                            ?
                         </NavIcon>
                         <NavText>
                             Search
@@ -83,7 +83,7 @@ localStorage.setItem( 'token', token)
                     </NavItem>
                     <NavItem eventKey="detail">
                         <NavIcon>
-                            <i className="fa fa-fw fa-device" style={{ fontSize: '2em' }} />
+                            D
                         </NavIcon>
                         <NavText>
                             Details

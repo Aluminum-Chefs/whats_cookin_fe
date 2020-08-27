@@ -1,0 +1,26 @@
+.detail-content{
+    width: fit-content;
+    padding-inline-start: 20px;
+    font-size: 1.5rem;
+}
+
+.detail{
+    display: block;
+    justify-self: center;
+    text-align: center;
+    
+}
+.detail-img{
+    border-radius: 20px;
+    box-shadow: 0 0 15px 4px rgba(100, 76, 76, 0.5);
+}
+
+.summary{
+    display: flex;
+    flex-wrap: wrap;    
+}
+
+.ingredients-list{
+    padding-inline-start: 40px;
+}
+

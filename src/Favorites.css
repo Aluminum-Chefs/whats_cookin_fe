@@ -6,9 +6,8 @@
     display: flex;
     margin-bottom: 20px;
     margin-right: 20px;
-    border: solid 2px black;
     border-radius: 20px;
-    background: rgba(245, 222, 179, 0.486);
+    background: rgba(255, 255, 255, 0.486);
     box-shadow: 0 0 15px 4px rgba(100, 76, 76, 0.5);
     padding:10px;
 }

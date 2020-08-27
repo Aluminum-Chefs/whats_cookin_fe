@@ -15,7 +15,7 @@
     border-radius: 10px;
     box-shadow: 0 0 15px 4px rgba(100, 76, 76, 0.5);
 }
-form{
+.search-form{
     display: flex;
     flex-wrap: wrap;
 }

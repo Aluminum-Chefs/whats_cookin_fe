@@ -75,7 +75,7 @@ export default class searchPage extends Component {
     render() {
         return (
             <div>
-                <form onSubmit={this.handleFormSubmit}>
+                <form className='search-form'onSubmit={this.handleFormSubmit}>
                 <select className='fav-select'name='searchByCuisine' value={this.state.searchByCuisine}onChange={this.handleItemChange}>
                         {
                         cuisines.map(cuisine => <option value={cuisine}>{cuisine}</option>)
@@ -89,23 +89,19 @@ export default class searchPage extends Component {
                 <input placeHolder='Ingredient'name='searchByIngredients' value={this.state.searchByIngredients} onChange={this.handleItemChange}/>
                 <button>Search</button>
                 </form>
-                        <div className='recipe-results'>
+                <div className='recipe-results'>
                 
-                {
+                    {
                     this.state.results && this.state.results.map((result) => { return <div className='recipe-card'>
                        <Link to={`/detail/${result.id}`}> <img className='result-img'src={result.image} alt={result.title} /> </Link>
                         <h3>{result.title}</h3>
-                         
-                        </div>
-                }
-        )
-        }
-        </div>
+                         </div>
+                         })
+                    }
+                </div>
                     
                 
 
                 
             </div>
-        )
-    }
-}
+            )}}
