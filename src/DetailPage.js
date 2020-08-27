@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
-import { fetchDetails } from './whats_cookn_api.js';
+
+import { fetchDetails, postFavorites, putFavorites } from './whats_cookn_api.js';
+
+
 import './DetailPage.css';
+
 export default class DetailPage extends Component {
 
     state= {
@@ -9,32 +13,60 @@ export default class DetailPage extends Component {
     }
 
     componentDidMount = async () => {
+        try {
         const recipe = await fetchDetails(this.props.match.params.id);
-        this.setState(recipe.body)
-        console.log(this.state)
-        console.log(this.props);
+        this.setState(recipe.body);
+        if(this.props.location.state) {
+            this.setState({
+                favorite_id: this.props.location.state.favorite_id,
+                isFavorited: this.props.location.state.isFavorited,
+                notes:this.props.location.state.notes,
+            })
+        }
+    
+        } catch (error) {
+            console.log(error.message)
+        }
+        
+
     }
 
     checkboxHandler = (e) => {
 
         const checked = e.target.checked;
         this.setState({ isFavorited: checked })
-
-      
-
-
-
        }
-       addNote = (e) => {
-
+    addNote = (e) => {
             const note = e.target.value;
-
             this.setState({ notes: note });
-            console.log(this.state);
-
        }
 
-
+    saveDetail = async (e) => {
+            e.preventDefault();
+            
+           if(this.state.favorite_id){
+            const modifiedFavorite = {
+                id: this.state.favorite_id,
+                source_id: this.state.id,
+                title: this.state.title,
+                image_url: this.state.image,
+                notes: this.state.notes
+            }
+                await putFavorites(modifiedFavorite)
+                
+            
+           } else {
+            const newFavorite = {
+                source_id: this.state.id,
+                title: this.state.title,
+                image_url: this.state.image,
+                notes: this.state.notes
+            }
+                await postFavorites(newFavorite)
+        
+           }
+           this.props.history.push('/favorites')
+       }
 
 
 
@@ -67,9 +99,12 @@ export default class DetailPage extends Component {
             }
                     
         </ol>
+
                 <form className='form-detail' onSubmit ={this.saveDetail}>
-                    <textarea onChange={this.addNote} value={this.props.notes}>THIS IS A PLACE FOR NOTES</textarea>
-                    <button>SAVE</button>
+                  
+                <textarea onChange={this.addNote} value={this.state.notes}/>
+
+                <button>SAVE</button>
                 </form>
 
             </div>
