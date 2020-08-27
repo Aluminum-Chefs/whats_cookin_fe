@@ -43,6 +43,18 @@ export function postFavorites(newFavorite) {
     }
 }
 
+export function putFavorites(modifiedFavorite) {
+    const token = localStorage.getItem( 'token' );
+    try {
+        return request
+            .put(`${URL}/api/favorites/${modifiedFavorite.id}`, modifiedFavorite)
+            .set('Authorization', token);
+
+    } catch(e) {
+        return { error: e.message }
+    }
+}
+
 export function searchRecipes(options) {
     const token = localStorage.getItem( "token" );
     try {
@@ -58,11 +70,23 @@ export function searchRecipes(options) {
 export function fetchDetails(source_id) {
     const token = localStorage.getItem( "token" );
     try {
-        
         return request
-        .get(`${URL}/api/favorites/${source_id}`)
-        .set('Authorization', token);
+            .get(`${URL}/api/favorites/${source_id}`)
+            .set('Authorization', token);
+
     } catch(e) {
+        return { error: e.message }
+    }
+}
+
+export function fetchDays() {
+    const token =localStorage.getItem( "token" )
+    try {
+        return request
+            .get(`${URL}/api/days`)
+            .set('Authorization', token);
+
+    } catch (e) {
         return { error: e.message }
     }
 }
