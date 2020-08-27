@@ -1,12 +1,10 @@
 import React from 'react'
-import FullCalendar, { formatDate } from '@fullcalendar/react'
+import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from '@fullcalendar/interaction'
 import './CalendarPage.css';
-import { createEventId } from './event-utils'
 import { fetchFavorites, fetchDays, postDays } from './whats_cookn_api.js'
-
 
 export default class CalendarPage extends React.Component {
 
@@ -135,8 +133,7 @@ export default class CalendarPage extends React.Component {
 
         this.state.favorites && this.state.favorites.map((favorite) => {
         return <div className='calendar-box'key={`${favorite.id}-${favorite.source_id}`}>
-
-        key={`${favorite.id}-${favorite.source_id}`}
+        
         <img className='recipe-img' src={favorite.image_url} alt={favorite.title} onClick={this.handleFavoriteSelection} name={favorite.id} />
         <ul>
             <li className='calendar-name' >{`${favorite.title}`} 
