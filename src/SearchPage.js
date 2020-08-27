@@ -87,7 +87,7 @@ export default class searchPage extends Component {
                         }
                 </select>
                 <input className= 'search-input'placeHolder='Ingredient'name='searchByIngredients' value={this.state.searchByIngredients} onChange={this.handleItemChange}/>
-                <button>Search</button>
+                <button className='search-button' >Search</button>
                 </form>
                 <div className='recipe-results'>
                 

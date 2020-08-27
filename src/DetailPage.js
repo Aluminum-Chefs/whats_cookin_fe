@@ -46,14 +46,13 @@ export default class DetailPage extends Component {
                 <h2>{this.state.title}</h2>
                 <img className='detail-img' src={this.state.image} alt={this.state.title}/>
                     <div className='label-detail' >
-                    
                     <input id='check' className='input-detail' onChange={this.checkboxHandler} type="checkbox" />
-                    <label for='check' className= 'checkmark'><h2>SAVE RECIPE</h2></label>
+                    <label htmlFor='check' className= 'checkmark'><h2>SAVE RECIPE</h2></label>
                     </div>
                 <h3>Servings: {this.state.servings}</h3>
                 <h3>Ready in {this.state.readyInMinutes} minutes</h3>
                 </div>
-                 <div className='summary' dangerouslySetInnerHTML= {{__html:this.state.summary}} />
+                 <div className='ingredients-list' dangerouslySetInnerHTML= {{__html:this.state.summary}} />
                  <h2>Ingredients</h2>
         <ul className='ingredients-list'>
             {
@@ -68,8 +67,8 @@ export default class DetailPage extends Component {
                     
         </ol>
                 <form className='form-detail' onSubmit ={this.saveDetail}>
-                    <textarea onChange={this.addNote} value={this.props.notes}>THIS IS A PLACE FOR NOTES</textarea>
-                    <button>SAVE</button>
+                    <textarea className='text-area' onChange={this.addNote} value={this.props.notes}>THIS IS A PLACE FOR NOTES</textarea>
+                    <button className='notes-button' >SAVE</button>
                 </form>
 
             </div>
