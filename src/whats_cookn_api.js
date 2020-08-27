@@ -90,3 +90,14 @@ export function fetchDays() {
         return { error: e.message }
     }
 }
+export function postDays(newDay) {
+    const token = localStorage.getItem( 'token' );
+    try {
+        return request.post(`${URL}/api/days`, newDay)
+        
+        .set('Authorization', token);
+
+    } catch(e) {
+        return { error: e.message }
+    }
+}

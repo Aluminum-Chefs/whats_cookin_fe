@@ -5,7 +5,8 @@ import Login from './Login.js';
 import Favorites from './Favorites.js';
 import SearchPage from './SearchPage.js';
 import DetailPage from './DetailPage.js';
-import CalendarPage from './CalendarPage.js'
+import CalendarPage from './CalendarPage.js';
+import About from './About.js';
 
 import {
   BrowserRouter as Router,
@@ -86,6 +87,14 @@ localStorage.setItem( 'token', token)
                             Search
                         </NavText>
                     </NavItem>
+                    <NavItem eventKey="about">
+                        <NavIcon>
+                        <span className='nav'role='img' aria-label='about'>α</span> 
+                        </NavIcon>
+                        <NavText>
+                            About
+                        </NavText>
+                    </NavItem>
                 </SideNav.Nav>
             </SideNav>
             <div className='content'>
@@ -97,6 +106,7 @@ localStorage.setItem( 'token', token)
                 <Route path='/search' render={(routerProps) => <SearchPage token={this.state.token} {...routerProps} />} />
                 <Route path='/detail/:id' exact render={(routerProps) => <DetailPage token={this.state.token} {...routerProps} />} />
                 <Route path='/calendar' render={(routerProps) => <CalendarPage token={this.state.token} {...routerProps} />} />
+                <Route path='/about' render={(routerProps) => <About token={this.state.token} {...routerProps} />} />
                                            
                </Switch>
             </div>
