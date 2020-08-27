@@ -16,6 +16,7 @@
     color: white;
     text-shadow: black 2px 2px 4px;
     font-family: 'Sriracha', cursive;
+    margin-bottom: -25px;
 }
 
 .home-box {
@@ -23,4 +24,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    align-content: space-around;
+    
+}
+
+.home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
 }
