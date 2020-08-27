@@ -1,11 +1,12 @@
 /*! react-sidenav v0.5.0 | (c) 2020 Trend Micro Inc. | MIT | https://github.com/trendmicro-frontend/react-sidenav */
 .sidenav---sidenav---_2tBP {
-  position: absolute;
+  position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   z-index: 1006;
   min-width: 64px;
+  min-height: 100vh;
   background: rgba(255, 255, 255, 0.5);
   -webkit-transition: min-width 0.2s;
   -moz-transition: min-width 0.2s;
@@ -112,7 +113,7 @@
   background-color: transparent;
   background-image: none;
   border: 0;
-  border-radius: 0;
+  border-radius: 5px;
   cursor: pointer;
 }
 .sidenav---sidenav-toggle---1KRjR:focus {
