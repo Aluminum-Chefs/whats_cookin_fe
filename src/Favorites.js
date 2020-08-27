@@ -19,7 +19,10 @@ export default class Favorites extends Component {
             favorites: data.body
         })
 
+
     }}
+    
+    handle
 
     render() {
         return (

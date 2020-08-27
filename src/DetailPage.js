@@ -24,8 +24,8 @@ export default class DetailPage extends Component {
             })
         }
     
-        } catch (error) {
-            console.log(error.message)
+        } catch (e) {
+            console.log(e.message)
         }
         
 
