@@ -14,18 +14,7 @@ export default class CalendarPage extends React.Component {
   }
   componentDidMount = async () => {
 
-    const data = await fetchDays();
-    const events = data.body.map((day, index) => {
-        return {
-          id: index.toString(),
-          title: day.title,
-          start: day.date
-        }
-
-    })
-    
-    
-    await this.setState({ currentEvents: events });
+    await this.loadEvents()
     
 
   }
@@ -70,10 +59,10 @@ export default class CalendarPage extends React.Component {
   }
    renderEventContent = (eventInfo) => {
     return (
-      <>
-        <b>{eventInfo.timeText}</b>
+      <div className="cell">
+        {/* <b>{eventInfo.timeText}</b> */}
         <i>{eventInfo.event.title}</i>
-      </>
+      </div>
     )
   }
   handleFavoriteSelection = async (e) => {
@@ -87,11 +76,28 @@ export default class CalendarPage extends React.Component {
 
 
     }
+    
     const result =  await postDays(newDay);
+    this.loadEvents();
     console.log(result);
     this.setState({favorites:null})
   
   }
+  async loadEvents() {
+    const data = await fetchDays()
+    const events = data.body.map((day, index) => {
+      return {
+        id: index.toString(),
+        title: day.title,
+        start: day.date
+      }
+
+    })
+
+
+    await this.setState({ currentEvents: events })
+  }
+
   render() {
     console.log(this.state)
     return (

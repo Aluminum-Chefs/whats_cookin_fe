@@ -52,3 +52,14 @@ i {
 }
 
 
+
+.fc-daygrid-event {
+  position: relative;
+  padding: 5%;
+  border-radius: 3px;
+  font-size: .85em;
+  font-size: var(--fc-small-font-size, .85em);
+}
+
+
+   
