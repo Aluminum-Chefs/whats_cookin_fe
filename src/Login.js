@@ -27,13 +27,19 @@ export default class Login extends Component {
     handleSignIn = async (e) => {
         e.preventDefault();
 
-        const user = await signIn({
-            email: this.state.signInEmail,
-            password: this.state.signInPassword
-        });
+        try {
+            
+            const user = await signIn({
+                email: this.state.signInEmail,
+                password: this.state.signInPassword
+            });
+    
+            this.props.handleToken(user.body.token);
+            this.props.history.push('/search');
 
-        this.props.handleToken(user.body.token);
-        this.props.history.push('/search');
+        } catch (e) {
+            console.log(e.message);
+        }
     }
 
     
