@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import { cuisines, diets } from './data.js';
 import { searchRecipes, postFavorites } from './whats_cookn_api.js';
 import {
@@ -14,7 +13,6 @@ export default class searchPage extends Component {
         searchByDiet: '',
         searchByIngredients: '',
         isLoading: false,
-        
         currentPage: 1,
         totalPages: 1,
     }
@@ -31,7 +29,7 @@ export default class searchPage extends Component {
         diet: this.state.searchByDiet,
         ingredients: this.state.searchByIngredients
         }
-        console.log(options);
+        
         const recipeData = await searchRecipes(options);
         await this.setState({
             results: recipeData.body.results,
@@ -44,28 +42,28 @@ export default class searchPage extends Component {
         
     }
 
-        handlePrevClick = async () => {
+    handlePrevClick = async () => {
             await this.setState({ currentPage: Number(this.state.currentPage) -1 })
             await this.makeRequest()
       }
     
-        handleNextClick = async () => {
+    handleNextClick = async () => {
             await this.setState({ currentPage: Number(this.state.currentPage) +1 })
             await this.makeRequest()
       }
-      handleFormSubmit = async (e) => {
+    handleFormSubmit = async (e) => {
             e.preventDefault();
             await this.makeRequest()
 
       } 
-      handleItemChange = async (e) => {
+    handleItemChange = async (e) => {
           const target = e.target;
           const name = target.name;
           const val = target.value;
           await this.setState({[name]:val});
       }
 
-      handleFavoriteAdd = async (e) => {
+    handleFavoriteAdd = async (e) => {
         postFavorites({
             source_id: this.stateresults
         })
