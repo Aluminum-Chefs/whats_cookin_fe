@@ -113,3 +113,12 @@ export function fetchSchedules() {
         return { error: e.message }
     }
 }
+
+export function postSchedules(newSchedule) {
+        try {
+        return request.post(`${URL}/schedules`, newSchedule)
+
+    } catch(e) {
+        return { error: e.message }
+    }
+}
