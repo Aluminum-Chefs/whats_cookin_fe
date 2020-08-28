@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { signIn, signUp } from './whats_cookn_api.js';
+import { signIn, signUp, fetchSchedules } from './whats_cookn_api.js';
 import './Login.css';
 export default class Login extends Component {
 
@@ -8,7 +8,16 @@ export default class Login extends Component {
         signInPassword: '',
         signUpEmail: '',
         signUpPassword: '',
-        schedule_id: null
+        schedule_id: 1,
+        schedules: null,
+    }
+
+    componentDidMount = async () => {
+        const data = await fetchSchedules()
+
+        this.setState({
+            schedules: data.body
+        })
     }
 
     handleSignUp = async (e) => {
@@ -36,6 +45,7 @@ export default class Login extends Component {
         this.props.history.push('/search');
     }
 
+  
     
     render() {
         return (
@@ -67,14 +77,18 @@ export default class Login extends Component {
                         
                         <input className='login-input' placeholder='Password' type='password' onChange={e => this.setState({ signUpPassword: e.target.value})} value={this.state.signUpPassword}/>
                     </label>
-                    <label>
-                        
-                        <input className='login-input' placeholder='Schedule ID' onChange={e => this.setState({ schedule_id: e.target.value})} value={this.state.schedule_id}/>
-                    </label>
+                    
+                    <select className='fav-select' name='scheduleId' onChange={e => this.setState({ schedule_id: e.target.value})} value={this.state.schedule_id}>
+                        {
+                            this.state.schedules && this.state.schedules.map((schedule) =>  {
+                            return <option value = {schedule.id}>{schedule.name}</option>
+                            })
+                        }
+                    </select> 
+                   
                     <button>Submit</button>
                     
                 </form>
-                
                 </div>
             </div>
         )

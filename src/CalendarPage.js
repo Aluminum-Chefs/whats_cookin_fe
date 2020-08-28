@@ -134,14 +134,13 @@ export default class CalendarPage extends React.Component {
         this.state.favorites && this.state.favorites.map((favorite) => {
         return <div className='calendar-box'key={`${favorite.id}-${favorite.source_id}`}>
         
-        <img className='recipe-img' src={favorite.image_url} alt={favorite.title} onClick={this.handleFavoriteSelection} name={favorite.id} />
         <ul>
             <li className='calendar-name' >{`${favorite.title}`} 
             </li>
             <li className='calendar-name'>Notes: {`${favorite.notes}`}</li>
           
         </ul>
-        <img className='calendar-img' src={favorite.image_url} alt={favorite.title} onClick={this.handleFavoriteSelection}/>
+        <img className='calendar-img' src={favorite.image_url} alt={favorite.title} onClick={this.handleFavoriteSelection} name={favorite.id} />
         </div>
         })
     }

@@ -101,3 +101,15 @@ export function postDays(newDay) {
         return { error: e.message }
     }
 }
+
+
+export function fetchSchedules() {
+    
+    try {
+        return request
+        .get(`${URL}/schedules`)
+        
+    } catch(e) { 
+        return { error: e.message }
+    }
+}
