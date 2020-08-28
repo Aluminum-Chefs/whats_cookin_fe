@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { signIn, signUp, fetchSchedules } from './whats_cookn_api.js';
+import { signIn, signUp, fetchSchedules, postSchedules } from './whats_cookn_api.js';
 import './Login.css';
 export default class Login extends Component {
 
@@ -13,11 +13,7 @@ export default class Login extends Component {
     }
 
     componentDidMount = async () => {
-        const data = await fetchSchedules()
-
-        this.setState({
-            schedules: data.body
-        })
+        await this.refreshSchedules();
     }
 
     handleSignUp = async (e) => {
@@ -51,8 +47,30 @@ export default class Login extends Component {
         }
     }
 
-  
+    addSchedule = async (e) => {
+        e.preventDefault()
+        try {
+            const newSchedule = {
+                schedule_name: this.state.newSchedule
+            }
+            await postSchedules(newSchedule)
+           await this.refreshSchedules();
+            
+        } catch (e) {
+            console.log(e.message)
+        }
+        
+
+    }
     
+    async refreshSchedules() {
+        const data = await fetchSchedules();
+
+        this.setState({
+            schedules: data.body
+        });
+    }
+
     render() {
         return (
             <div className='login-content'>
@@ -94,6 +112,10 @@ export default class Login extends Component {
                    
                     <button>Submit</button>
                     
+                </form>
+                <form onSubmit={this.addSchedule}>
+                <input className='login-input' placeholder='Schedule'onChange={e => this.setState({ newSchedule: e.target.value})}/>
+                <button >Add Schedule</button>
                 </form>
                 </div>
             </div>
