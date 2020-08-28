@@ -47,8 +47,8 @@ export default class CalendarPage extends React.Component {
   }
 
   handleEventClick = (clickInfo) => {
-    // if (confirm(`Are you sure you want to delete the event '${clickInfo.event.title}'`)) 
-      clickInfo.event.remove()
+    const source_id =clickInfo.event._def.extendedProps.source_id
+    this.props.history.push(`/detail/${source_id}`)
     
   }
 
@@ -75,7 +75,6 @@ export default class CalendarPage extends React.Component {
         day: this.state.day,
         favorite_id: favoriteId,
 
-
     }
     
     const result =  await postDays(newDay);
@@ -84,17 +83,18 @@ export default class CalendarPage extends React.Component {
     this.setState({favorites:null})
   
   }
+
   async loadEvents() {
     const data = await fetchDays()
     const events = data.body.map((day, index) => {
       return {
         id: index.toString(),
         title: day.title,
-        start: day.date
+        start: day.date,
+        source_id:day.source_id
       }
 
     })
-
 
     await this.setState({ currentEvents: events })
   }
