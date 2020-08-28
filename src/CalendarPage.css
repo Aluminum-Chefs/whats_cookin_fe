@@ -31,3 +31,21 @@
 .demo-app{
     text-align: center;
 }
+.fc-daygrid-event {
+    position: relative;
+    white-space: normal;
+    border-radius: 3px;
+    font-size: .85em;
+    font-size: var(--fc-small-font-size, .85em);
+  }
+  .fc .fc-scrollgrid-liquid {
+    height: 100%;
+    border: solid black 1px;
+    background: rgba(255, 255, 255, 0.486);
+    box-shadow: 0 0 15px 4px rgba(100, 76, 76, 0.5);
+}
+.fc-theme-standard td, .fc-theme-standard th {
+   
+    border: 1px solid black;
+}
+  
