@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { fetchFavorites } from './whats_cookn_api';
 import { Link } from 'react-router-dom';
 import './Favorites.css';

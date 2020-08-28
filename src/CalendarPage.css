@@ -26,8 +26,12 @@
     font-size: 9px;
     margin-top:-5px;
     margin-bottom:-5px;
+    
 }
 
 .demo-app{
     text-align: center;
+}
+.fc-daygrid-event {
+    white-space: normal;
 }

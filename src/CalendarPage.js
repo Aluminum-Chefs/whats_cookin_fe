@@ -4,6 +4,7 @@ import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from '@fullcalendar/interaction'
 import './CalendarPage.css';
+import './main.css';
 import { fetchFavorites, fetchDays, postDays } from './whats_cookn_api.js'
 
 export default class CalendarPage extends React.Component {
