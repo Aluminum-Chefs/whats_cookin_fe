@@ -26,19 +26,19 @@ export default class App extends Component {
   }
 
   handleToken = (token) => {
-this.setState({ token: token })
-localStorage.setItem( 'token', token)
+    this.setState({ token: token })
+    localStorage.setItem( 'token', token)
   }
 
   clearToken = () => {
     this.setState({ token: ''})
 
-    localStorage.setItem('token', '')
-    // this.props.history.push('/home');
-   
+    localStorage.setItem('token', '')   
   }
+
   render() {
     
+    // the complexity of your render method is impressive, but the formatting makes it tough to read. A nice, thorough linting would have done wonders here
   return (
     <main>
       <header>What's Cook'n</header>
@@ -48,6 +48,7 @@ localStorage.setItem( 'token', token)
             <SideNav className='side-bar'
                 onSelect={(selected) => {
                     const to = '/' + selected;
+                    // sooooooo cooooooool what!!
                     if (location.pathname !== to) {
                         history.push(to);
                     }
@@ -113,7 +114,11 @@ localStorage.setItem( 'token', token)
         </React.Fragment>
     )}
     />
-    <footer><Link to='/'><button onClick={this.clearToken} className='logout-button'>Log Out</button></Link></footer>
+    <footer>
+        <Link to='/'>
+          <button onClick={this.clearToken} className='logout-button'>Log Out</button>
+        </Link>
+      </footer>
     </Router>
     </main>
   );

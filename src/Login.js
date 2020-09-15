@@ -36,8 +36,7 @@ export default class Login extends Component {
     handleSignIn = async (e) => {
         e.preventDefault();
 
-        try {
-            
+        try {    
             const user = await signIn({
                 email: this.state.signInEmail,
                 password: this.state.signInPassword
@@ -83,30 +82,49 @@ export default class Login extends Component {
                     <h3 className='form-signs'>Sign-in</h3>
                     <label>
                         
-                        <input className='login-input' placeholder='Email'onChange={e => this.setState({ signInEmail: e.target.value})} value={this.state.signInEmail}/>
+                        <input 
+                            className='login-input' 
+                            placeholder='Email'
+                            onChange={e => this.setState({ signInEmail: e.target.value})} 
+                            value={this.state.signInEmail}/>
                     </label>
                     <label>
                         
-                        <input className='login-input' placeholder='Password'type='password' onChange={e => this.setState({ signInPassword: e.target.value})} value={this.state.signInPassword}/>
+                        <input 
+                            className='login-input' 
+                            placeholder='Password'
+                            type='password' 
+                            onChange={e => this.setState({ signInPassword: e.target.value})} 
+                            value={this.state.signInPassword}/>
                     </label>
                     <button>Submit</button>
-                    
                 </form>
                 </div>
-
                 <div className='form-signup'>
                 <form onSubmit={this.handleSignUp} className='login-forms'>
                     <h3 className='form-signs'>Sign-up</h3>
                     <label>
-                        
-                        <input className='login-input' placeholder='Email'onChange={e => this.setState({ signUpEmail: e.target.value})} value={this.state.signUpEmail}/>
+                        <input 
+                            className='login-input' 
+                            placeholder='Email'
+                            onChange={e => this.setState({ signUpEmail: e.target.value})} 
+                            value={this.state.signUpEmail}/>
                     </label>
                     <label>
                         
-                        <input className='login-input' placeholder='Password' type='password' onChange={e => this.setState({ signUpPassword: e.target.value})} value={this.state.signUpPassword}/>
+                        <input 
+                            className='login-input' 
+                            placeholder='Password' 
+                            type='password' 
+                            onChange={e => this.setState({ signUpPassword: e.target.value})}
+                            value={this.state.signUpPassword}/>
                     </label>
                     
-                    <select className='fav-select' name='scheduleId' onChange={e => this.setState({ schedule_id: e.target.value})} value={this.state.schedule_id}>
+                    <select 
+                        className='fav-select' 
+                        name='scheduleId' 
+                        onChange={e => this.setState({ schedule_id: e.target.value})} 
+                        value={this.state.schedule_id}>
                         {
                             this.state.schedules && this.state.schedules.map((schedule) =>  {
                             return <option value = {schedule.id}>{schedule.name}</option>
@@ -118,7 +136,10 @@ export default class Login extends Component {
                     
                 </form>
                 <form onSubmit={this.addSchedule}>
-                <input className='login-input' placeholder='Schedule'onChange={e => this.setState({ newSchedule: e.target.value})}/>
+                <input 
+                    className='login-input'
+                    placeholder='Schedule'
+                    onChange={e => this.setState({ newSchedule: e.target.value})}/>
                 <button >Add Schedule</button>
                 </form>
                 </div>
