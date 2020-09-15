@@ -1,14 +1,9 @@
 import React, { Component } from 'react'
-
 import { fetchDetails, postFavorites, putFavorites } from './whats_cookn_api.js';
-
-
 import './DetailPage.css';
 
 export default class DetailPage extends Component {
-
     state= {
-
         isFavorited: false
     }
 
@@ -27,15 +22,13 @@ export default class DetailPage extends Component {
         } catch (e) {
             console.log(e.message)
         }
-        
-
     }
 
     checkboxHandler = (e) => {
-
         const checked = e.target.checked;
         this.setState({ isFavorited: checked })
        }
+
     addNote = (e) => {
             const note = e.target.value;
             this.setState({ notes: note });
@@ -45,26 +38,23 @@ export default class DetailPage extends Component {
             e.preventDefault();
             
            if(this.state.favorite_id){
-            const modifiedFavorite = {
-                id: this.state.favorite_id,
-                source_id: this.state.id,
-                title: this.state.title,
-                image_url: this.state.image,
-                notes: this.state.notes
-            }
-                await putFavorites(modifiedFavorite)
-                
-            
+                await putFavorites({
+                    id: this.state.favorite_id,
+                    source_id: this.state.id,
+                    title: this.state.title,
+                    image_url: this.state.image,
+                    notes: this.state.notes
+                })            
            } else {
-            const newFavorite = {
-                source_id: this.state.id,
-                title: this.state.title,
-                image_url: this.state.image,
-                notes: this.state.notes
-            }
-                await postFavorites(newFavorite)
+                await postFavorites({
+                    source_id: this.state.id,
+                    title: this.state.title,
+                    image_url: this.state.image,
+                    notes: this.state.notes
+                })
         
            }
+
            this.props.history.push('/favorites')
        }
 
@@ -84,6 +74,7 @@ export default class DetailPage extends Component {
                 <h3>Servings: {this.state.servings}</h3>
                 <h3>Ready in {this.state.readyInMinutes} minutes</h3>
                 </div>
+                {/* nice! */}
                  <div className='ingredients-list' dangerouslySetInnerHTML= {{__html:this.state.summary}} />
                  <h2>Ingredients</h2>
         <ul className='ingredients-list'>

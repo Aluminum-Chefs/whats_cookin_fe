@@ -17,29 +17,20 @@ export default class searchPage extends Component {
         totalPages: 1,
     }
 
-    componentDidMount = async () => {
-        
-        
-    }
-
     makeRequest = async () => {
         this.setState({ isLoading: true });
-        const options = {
-        cuisine: this.state.searchByCuisine,
-        diet: this.state.searchByDiet,
-        ingredients: this.state.searchByIngredients
-        }
         
-        const recipeData = await searchRecipes(options);
+        const recipeData = await searchRecipes({
+            cuisine: this.state.searchByCuisine,
+            diet: this.state.searchByDiet,
+            ingredients: this.state.searchByIngredients
+        });
+
         await this.setState({
             results: recipeData.body.results,
             totalPages: Math.ceil(recipeData.body.count / 20),
             isLoading: false,
-            
-        })
-        console.log(this.state.results);
-
-        
+        });
     }
 
     handlePrevClick = async () => {
@@ -51,11 +42,7 @@ export default class searchPage extends Component {
             await this.setState({ currentPage: Number(this.state.currentPage) +1 })
             await this.makeRequest()
       }
-    handleFormSubmit = async (e) => {
-            e.preventDefault();
-            await this.makeRequest()
 
-      } 
     handleItemChange = async (e) => {
           const target = e.target;
           const name = target.name;
@@ -68,7 +55,6 @@ export default class searchPage extends Component {
             source_id: this.stateresults
         })
       }
-
     
     render() {
         return (
@@ -81,14 +67,14 @@ export default class searchPage extends Component {
                 </select>
                 <select className='fav-select' name='searchByDiet' value={this.state.searchByDiet}onChange={this.handleItemChange}>
                         {
-                        diets.map(diet => <option value={diet}>{diet}</option>)
+                        diets.map(diet => 
+                            <option value={diet}>{diet}</option>)
                         }
                 </select>
                 <input className= 'search-input'placeHolder='Ingredient'name='searchByIngredients' value={this.state.searchByIngredients} onChange={this.handleItemChange}/>
                 <button className='search-button' >Search</button>
                 </form>
-                <div className='recipe-results'>
-                
+                <div className='recipe-results'>  
                     {
                     this.state.results && this.state.results.map((result) => { return <div className='recipe-card'>
                        <Link to={`/detail/${result.id}`}> <img className='result-img'src={result.image} alt={result.title} /> </Link>

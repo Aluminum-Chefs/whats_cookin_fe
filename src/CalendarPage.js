@@ -13,11 +13,10 @@ export default class CalendarPage extends React.Component {
     weekendsVisible: true,
     currentEvents: null
   }
+
   componentDidMount = async () => {
 
     await this.loadEvents()
-    
-
   }
 
   handleDateSelect = async (selectInfo) => {
@@ -29,21 +28,6 @@ export default class CalendarPage extends React.Component {
             day: selectInfo.startStr,
 
         })
-    // let title = 'Test'
-    
-    // let calendarApi = selectInfo.view.calendar
-
-    // calendarApi.unselect() // clear date selection
-
-    // if (title) {
-    //   calendarApi.addEvent({
-    //     id: createEventId(),
-    //     title,
-    //     start: selectInfo.startStr,
-    //     end: selectInfo.endStr,
-    //     allDay: selectInfo.allDay
-    //   })
-    // }
   }
 
   handleEventClick = (clickInfo) => {
@@ -52,16 +36,9 @@ export default class CalendarPage extends React.Component {
     
   }
 
-  handleEvents = (events) => {
-    // this.setState({
-    //   currentEvents: events
-    // })
-    
-  }
    renderEventContent = (eventInfo) => {
     return (
       <div className="cell">
-        {/* <b>{eventInfo.timeText}</b> */}
         <i>{eventInfo.event.title}</i>
       </div>
     )
@@ -86,16 +63,11 @@ export default class CalendarPage extends React.Component {
 
   async loadEvents() {
     const data = await fetchDays()
-    const events = data.body.map((day, index) => {
-      return {
+    const events = data.body.map((day, index) => ({
+        ...day,
         id: index.toString(),
-        title: day.title,
-        start: day.date,
-        source_id:day.source_id
-      }
-
-    })
-
+      }))
+    
     await this.setState({ currentEvents: events })
   }
 
